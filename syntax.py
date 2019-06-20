@@ -250,7 +250,7 @@ my_dict1['bob'] = '052-2253974'
 print(len(my_dict1))
 
 # מחיקת שם:ערך מהמילון
-del my_dict1['adi']
+# del my_dict1['adi']
 
 # נבדוק ששם קיים במילון
 print("adi" in my_dict1)

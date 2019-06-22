@@ -1,21 +1,25 @@
 from typing import NewType
 
-def hobbies(name, age: int, hobby, optional_hobbies = None, other = None):
-    if (not optional_hobbies):
-        optional_hobbies = ""
-    if (not other):
-        other = ""
-    while (type(age) != int):
+def getAge(age):
+    right_age = age
+    while (type(right_age) != int):
         try:
-            int(age)
+            int(right_age)
             break
-        except TypeError:
-            age = input('age must be a number, please enter a valid age\n')
-            
+        except:
+            right_age=input(f'oops, looks like you didn\'t enter a valid age.\nPlease enter a number\n')
+    return right_age
 
+def hobbies(name, age: int, hobby, *optional_hobbies, **other):
     output = f'my name is {name}, my age is {age}.\nI like {hobby} {optional_hobbies}.'
+    for k, v in other.items():
+        output += f'\n{k} - {v}'
+
     return output
 
+
+
 if __name__ == "__main__":
+    print(hobbies('eyal', int(input('please enter you age\n')), 'playing', 'basketball', 'guitar', 'computer sience', other=["other1", "other2"], ball_sports=['basktball', 'football']))
     
-    print(hobbies('eyal', input('please enter you age\n'), 'playing', ['basketball', 'guitar']))
+            

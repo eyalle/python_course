@@ -20,6 +20,6 @@ def hobbies(name, age: int, hobby, *optional_hobbies, **other):
 
 
 if __name__ == "__main__":
-    print(hobbies('eyal', int(input('please enter you age\n')), 'playing', 'basketball', 'guitar', 'computer sience', other=["other1", "other2"], ball_sports=['basktball', 'football']))
+    print(hobbies('eyal', int(input('please enter you age\n')), 'playing', 'basketball', 'guitar', 'computer sience', 8, other=["other1", "other2"], ball_sports=['basktball', 'football'], distler='nmotzez zain'))
     
             

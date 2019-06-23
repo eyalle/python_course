@@ -14,15 +14,15 @@ def getAddr(name):
 
 
 
-names = []
+names = {}
 for item in data:
-    names.append(item['name'])
+    names[item['name']] = item['name']
 
-list(set(names))
+
 
 output = []
-for item in names:
-    output.append((item, list(map(lambda item: item, getAddr(item)))))
+for name in names:
+    output.append((name, list(map(lambda name: name, getAddr(name)))))
 
 print(output)
     

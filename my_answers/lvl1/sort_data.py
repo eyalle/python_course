@@ -14,9 +14,9 @@ def getAddr(name):
 
 
 
-names = {}
+names = set()
 for item in data:
-    names[item['name']] = item['name']
+    names.add(item['name'])
 
 
 
@@ -26,8 +26,3 @@ for name in names:
 
 print(output)
     
-
-# sorted_list = sorted(sorted_list)
-# print(sorted_list)
-# for item in sorted_list:
-#     print(f'{item[0]}, {item[1]}')

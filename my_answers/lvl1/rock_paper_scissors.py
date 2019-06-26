@@ -8,16 +8,8 @@ RPS = {
     }
 
 def get_comp_choice():
-    random_int = randint(0,10000) % 3
-    # print(f'random is {random_int}\n')
-    if (random_int == 0):
-        return_val = 'ROCK'
-    elif (random_int == 1):
-        return_val = 'PAPER'
-    else:
-        return_val = 'SCISSORS'
-
-    return return_val
+    random_int = randint(0,2)
+    return list(RPS)[random_int]
 
 def check_win(user, comp):
     if (RPS[comp]['WINS'] == user):

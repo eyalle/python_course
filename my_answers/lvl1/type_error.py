@@ -1,10 +1,10 @@
-from random import randint;
-import zero_division;
+from random import randint
+import zero_division
 
 def randomly_stringify_list_items(num_list):
     amount_to_str = randint(0,len(num_list))
 #     print(f'amount = {amount_to_str}')
-    for i in range(0,len(num_list)-1):
+    for i in range(0,amount_to_str):
         # print(f'i = {i}')
         to_be_stred = randint(0,len(num_list)-1)
         # print(f'to_be_stred = {to_be_stred}')
@@ -15,11 +15,10 @@ def randomly_stringify_list_items(num_list):
 if __name__ == "__main__":
     numbers = zero_division.create_numbers()
     zero_division.display_num_list(numbers)
-#     print(randomly_stringify_list_items(numbers))
-    try:
-        zero_division.print_average(numbers)
-        pass
-    except Exception:
-        pass
-#     while (True):
-#         zero_division.print_average(numbers)
+    got_exc = False
+    while (not got_exc):
+        try:
+                zero_division.print_average(randomly_stringify_list_items(numbers))
+                numbers = zero_division.create_numbers()
+        except Exception:
+                got_exc = True

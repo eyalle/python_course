@@ -24,11 +24,15 @@ def print_average(num_list):
     try:
         avg = avg_num(num_list)
         print(f'the average of {num_list} is {avg}')
-    except Exception as err:
-        if (type(err) == ZeroDivisionError or type(err) == TypeError):
-            print(f'the error is:\n{err}')
-        else:
-            print(f'ERR: an unkown error has occured')
+    except ZeroDivisionError as zeroDivision:
+            print(f'the error is:\n{zeroDivision}')
+            raise
+    except TypeError as typErr:
+        print(f'the error is:\n{typErr}')
+        raise
+    except:
+        print(f'ERR: an unkown error has occured')
+        raise
     return
 
 if __name__ == "__main__":

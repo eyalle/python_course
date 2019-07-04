@@ -45,9 +45,8 @@ def count_hobbies(users):
 def add_second_hobby(users):
     for user in users:
         hobby2 = random.choice(hobbies)
-        # hobby2 = random.choice(hobbies2) if (hobby2 == user['hobby'])
         if (hobby2 == user['hobby']):
-            hobby2 = random.choice(hobbies2)
+            hobby2 = random.choice(hobbies2) 
         user['hobby2'] = hobby2
     print(f'{users}')
 
@@ -56,4 +55,4 @@ if __name__ == "__main__":
     add_random_hobby(users)
     count_hobbies(users)
     add_second_hobby(users)
-    
+    # count_hobbies(users)

@@ -35,10 +35,10 @@ def add_random_hobby(users):
         user['hobby'] = random.choice(hobbies)
 
 
-def count_hobbies(users):
-    count = {hobby: 0 for hobby in hobbies}
+def count_hobbies(users, current_hobbies, hobby_str):
+    count = {hobby_to_count: 0 for hobby_to_count in current_hobbies}
     for user in users:
-        count[user['hobby']] += 1
+        count[user[hobby_str]] += 1
     for hobby in count:
         print(hobby, count[hobby])
 
@@ -48,11 +48,11 @@ def add_second_hobby(users):
         if (hobby2 == user['hobby']):
             hobby2 = random.choice(hobbies2) 
         user['hobby2'] = hobby2
-    print(f'{users}')
+    # print(f'{users}')
 
 
 if __name__ == "__main__":
     add_random_hobby(users)
-    count_hobbies(users)
+    # count_hobbies(users, hobbies, 'hobby')
     add_second_hobby(users)
-    # count_hobbies(users)
+    count_hobbies(users, hobbies2, 'hobby2')

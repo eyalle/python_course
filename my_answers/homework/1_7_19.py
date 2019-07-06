@@ -1,7 +1,6 @@
-import sys
+import sys, random, time
 sys.path.append("../../")
 from exercises.data import get_data
-import random
 
 data = get_data(5)
 users = [{'name': items['name']} for items in data]
@@ -30,17 +29,23 @@ hobbies2 = [
     'idan hakimi'
 ]
 
+consolidated_hobbies = list(set(hobbies + hobbies2))
+print(consolidated_hobbies)
 def add_random_hobby(users):
     for user in users:
         user['hobby'] = random.choice(hobbies)
+    time.sleep(1)
 
-
-def count_hobbies(users, current_hobbies, hobby_str):
-    count = {hobby_to_count: 0 for hobby_to_count in current_hobbies}
+def count_hobbies(users):
+    count = {hobby: 0 for hobby in hobbies}
     for user in users:
-        count[user[hobby_str]] += 1
+        if (user['hobby']):
+            count[user['hobby']] += 1
+        elif (user['hobby2']):
+            count[user['hobby2']] += 1
     for hobby in count:
         print(hobby, count[hobby])
+    time.sleep(1)
 
 def add_second_hobby(users):
     for user in users:
@@ -48,11 +53,16 @@ def add_second_hobby(users):
         if (hobby2 == user['hobby']):
             hobby2 = random.choice(hobbies2) 
         user['hobby2'] = hobby2
-    # print(f'{users}')
+    print(f'{users}')
+    time.sleep(1)
 
 
 if __name__ == "__main__":
+    print('\n\nwelcome, adding random hobby')
     add_random_hobby(users)
-    # count_hobbies(users, hobbies, 'hobby')
+    print('\ncounting hobbies..')
+    count_hobbies(users)
+    print('\n\nadding second hobby')
     add_second_hobby(users)
-    count_hobbies(users, hobbies2, 'hobby2')
+    print('\n\ncounting hobbies, now with seocnd hobby..')
+    count_hobbies(users)

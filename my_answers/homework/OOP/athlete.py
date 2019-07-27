@@ -3,7 +3,13 @@ def get_time(time_in_seconds):
     import datetime
     time_str = str(datetime.timedelta(time_in_seconds))
     time_fractions = time_str.split(":")
-    time_str = f'{time_fractions[0]}h : {time_fractions[1]}m : {time_fractions[2]}s'
+    time_fractions[0] = time_fractions[0].replace(",","")
+    time_fractions[-1] += 's'
+    time_fractions[-2] += 'm'
+    time_fractions[-3] += 'h'
+    # print(time_fractions)
+    time_str = ":".join(time_fractions)
+    # time_str = f'{time_fractions[0]}:{time_fractions[1]}:{time_fractions[2]}s'
     return time_str
 
 class Athlete:

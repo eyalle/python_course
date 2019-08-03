@@ -60,7 +60,7 @@ class Runner(Athlete):
     def run(self, distance):
         import time
         t = self.get_duration(distance)
-        # time.sleep(t)
+        time.sleep(t/2)
         return self.name
 
 class Sprinter(Runner):

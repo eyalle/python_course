@@ -10,20 +10,23 @@ class Measurment:
 
 class Timer(inherit.Date):
     def __init__(self, f, *args, **kwargs):
-        self.operation = f
         self.args = args
         self.kwargs = kwargs
-        self.last_measurement = Measurment(self.get_date, self.get_time)
+        self.operation = f(*self.args, **self.kwargs)
+        self.last_measurement = Measurment(self.get_date(), self.get_time())
+    
     def start(self):
-        self.start_time = self.get_time
-        self.start_date = self.get_date
-        return(self.start_date, self.start_date)
+        start_time = self.get_time()
+        self.last_measurement.date = self.get_date()
+        result = self.operation(*self.args, **self.kwargs)
+        self.last_measurement.run_time = self.get_time - start_time
+        return(result)
 
 
 
 if (__name__ == "__main__"):
     from random import randint
+    sys.path.append("../../../")
     from exercises.level_1.oop.athlete import Sprinter
     from exercises.data import get_data
-    # winner, distance, athletes
     
